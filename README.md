@@ -1,33 +1,36 @@
-# Conjunctive Hierarchical Multi-Secret Sharing
+# Elliptic Curve Multi-Secret Sharing
 
-A minimal SageMath reproduction of the construction presented in:
+Reproduction of Chintamani, Paul, and Sa's Conjunctive Hierarchical Multi-Secret Sharing Scheme using Elliptic Curves.
 
-> **Conjunctive Hierarchical Multi-Secret Sharing Scheme using Elliptic Curves**  
-> Mohan Chintamani, Prabal Paul, Laba Sa — *Indian Journal of Pure and Applied Mathematics*, 2024.
+## Scope
 
-## Current Scope
+This repository contains an **end-to-end scoped reproduction of the scheme through Level 2**, implemented in SageMath.
 
-This repository currently implements the foundational parts of the scheme:
+The current implementation reproduces:
 
-- Finite-field and elliptic-curve setup
-- Extension field construction
-- Level 1 share generation
-- Level 2 share generation
-- Elliptic-curve point shares \(b_iP\)
-- Section 3.2 reconstruction
-- Construction of \(Q\)
-- Secret recovery using the pairing as a black box
+- Construction of the finite fields and elliptic curve used in the paper
+- Generation of Level 1 shares
+- Generation of Level 2 shares
+- Distribution of elliptic-curve point shares
+- Reconstruction of the hidden coefficient points from authorized shares
+- Construction of $Q$
+- Pairing-based secret recovery
+- Recovery of the secret $K_1$
 
-The implementation currently covers **Levels 1 and 2 and one secret**.
+The implementation therefore follows the complete path
 
-## Goal
+$$
+\text{construction}\rightarrow \text{share distribution} \rightarrow \text{authorized reconstruction}\rightarrow Q \rightarrow K_1.
+$$
 
-The purpose is to understand and reproduce the paper's construction from first principles before extending it to:
+The current scope is limited to **Levels 1 and 2 and one secret**.
 
-- Higher hierarchy levels
-- Multiple secrets
-- Unauthorized-access experiments
-- Computational hardness / attacker experiments
+## Next Steps
+
+- Extend the implementation to additional secrets
+- Implement the remaining hierarchy levels
+- Reproduce the paper's full numerical example
+- Investigate the scheme from an external attacker's perspective
 
 ## Requirements
 
@@ -39,4 +42,8 @@ The purpose is to understand and reproduce the paper's construction from first p
 sage level_1_2.sage
 ```
 
-The code is intentionally kept simple and closely follows the mathematical construction in the paper.
+## Reference
+
+Mohan Chintamani, Prabal Paul, Laba Sa,  
+*Conjunctive Hierarchical Multi-Secret Sharing Scheme using Elliptic Curves*,  
+Indian Journal of Pure and Applied Mathematics, 2024.
